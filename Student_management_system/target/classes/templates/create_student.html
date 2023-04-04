@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Management System</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+</head>
+<body>
+<br>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Student Management System </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/students}">Student Management</a>
+        </li>
+       
+       
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-log-lg-6 col-md-6 container justify-content-center card">
+				<h1 class="text-center">Create New Student</h1>
+					<div class="card-body">
+						<form th:action="@{/students}" th:object = "${student}" method="post">
+							<div class="form-group">
+								<label>Student First Name</label>
+								<input type="text" name="firstName" th:field ="*{firstName}"
+								class="form-contrl"
+								placeholder="Enter Student First name"/>
+							</div>
+							
+							<div class="form-group">
+								<label>Student Last Name</label>
+								<input type="text" name="lastname" th:field ="*{lastname}"
+								class="form-contrl"
+								placeholder="Enter Student Last name"/>
+							</div>
+							
+							<div class="form-group">
+								<label>Student Email</label>
+								<input type="text" name="email" th:field ="*{email}"
+								class="form-contrl"
+								placeholder="Enter Student Email"/>
+							</div>
+							
+							<div class="box-footer">
+							<button type="submit" class="btn btn-primary">
+							Submit
+							</button>
+							</div>	
+							
+						</form>
+					</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
